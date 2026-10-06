@@ -170,3 +170,170 @@
 // addHours(time);
 // addMinutes(time);
 // addSeconds(time);
+
+
+
+//Arrays
+//Task 1
+
+// const shoppingList = [
+//   { name: "Bread", quantity: 1, isBought: false },
+//   { name: "Milk", quantity: 2, isBought: true },
+//   { name: "Apples", quantity: 5, isBought: false },
+//   { name: "Coffe", quantity: 1, isBought: true }
+// ];
+
+// function displayShoppingList(list) {
+//   const sortedList = [...list].sort((a, b) => Number(a.isBought) - Number(b.isBought));
+
+//   console.log("=== shopping list ===");
+//   sortedList.forEach(item => {
+//     const status = item.isBought ? "Bought" : "Not bought";
+//     console.log(`${status} : ${item.name} — ${item.quantity}`);
+//   });
+// }
+
+// function addItem(list, name, quantity = 1) {
+//   const existingItem = list.find(item => item.name.toLowerCase() === name.toLowerCase());
+
+//   if (existingItem) {
+//     existingItem.quantity += quantity;
+//     console.log(`Quantity of "${existingItem.name}" is increased for ${quantity}. Sum: ${existingItem.quantity}`);
+//   } else {
+//     list.push({
+//       name,
+//       quantity,
+//       isBought: false
+//     });
+//     console.log(`Product "${name}" is added to the list`);
+//   }
+// }
+
+// function buyItem(list, name) {
+//   const item = list.find(i => i.name.toLowerCase() === name.toLowerCase());
+
+//   if (item) {
+//     item.isBought = true;
+//     console.log(`Product "${item.name}" is bought.`);
+//   } else {
+//     console.log(`Product "${name}" is not found in list`);
+//   }
+// }
+
+// displayShoppingList(shoppingList);
+
+// addItem(shoppingList, "Bread", 2);
+// addItem(shoppingList, "Cheese", 1);
+
+// buyItem(shoppingList, "Apple");
+
+// displayShoppingList(shoppingList);
+
+
+//Task 2
+
+// const bill = [
+//   { name: "Bread", quantity: 1, price: 40 },
+//   { name: "Milk", quantity: 2, price: 70 },
+//   { name: "Apples", quantity: 5, price: 20 },
+//   { name: "Coffe", quantity: 1, price: 30 }
+// ];
+
+// function displayBill(list) {
+//   console.log("=== bill ===");
+//   list.forEach(item => {
+//     const totalItemPrice = item.price * item.quantity;
+//     console.log(`${item.name}: ${item.quantity} ${item.price} = ${totalItemPrice} грн`);
+//   });
+// }
+
+// function sumPrice(list) {
+//   return list.reduce((total, item) => total + (item.price * item.quantity), 0);
+// }
+
+// function getExpensive(list) {
+//   if (list.length === 0) return null;
+
+//   return list.reduce((maxItem, currentItem) => {
+//     return currentItem.price > maxItem.price ? currentItem : maxItem;
+//   });
+// }
+
+// function getAveragePrice(list) {
+//   if (list.length === 0) return 0;
+
+//   const totalSum = sumPrice(list);
+//   const totalQuantity = list.reduce((total, item) => total + item.quantity, 0);
+
+//   return Math.round(totalSum / totalQuantity);
+// }
+
+// displayBill(bill);
+
+// console.log(sumPrice(bill));
+
+// console.log(getExpensive(bill));
+
+// console.log(getAveragePrice(bill));
+
+
+// Task 3
+
+// const styles = [
+//   { name: "color", value: "#0080ff" },
+//   { name: "font-size", value: "24px" },
+//   { name: "text-align", value: "center" },
+//   { name: "text-decoration", value: "underline" },
+//   { name: "font-family", value: "sans-serif" }
+// ];
+
+// function renderStyledText(styleArray, text) {
+//   const p = document.createElement("p");
+//   p.textContent = text;
+
+//   // Apply each style property
+//   styleArray.forEach(style => {
+//     p.style.setProperty(style.name, style.value);
+//   });
+
+//   document.body.appendChild(p);
+// }
+
+// renderStyledText(styles, "Hello, styled world!");
+
+
+// Task 4
+
+// const classrooms = [
+//   { name: "101-A", seats: 15, department: "Computer Science" },
+//   { name: "204-B", seats: 20, department: "Economics" },
+//   { name: "105-A", seats: 12, department: "Computer Science" },
+//   { name: "302-C", seats: 18, department: "Design" },
+//   { name: "210-B", seats: 10, department: "Economics" }
+// ];
+
+// function printClassrooms(rooms) {
+//   console.log("--- Classroom List ---");
+//   rooms.forEach(r => {
+//     console.log(`Room: ${r.name} | Seats: ${r.seats} | Department: ${r.department}`);
+//   });
+// }
+
+// function filterByDepartment(rooms, deptName) {
+//   return rooms.filter(r => r.department.toLowerCase() === deptName.toLowerCase());
+// }
+
+// function filterForGroup(rooms, group) {
+//   return rooms.filter(r => 
+//     r.department.toLowerCase() === group.department.toLowerCase() && 
+//     r.seats >= group.studentsCount
+//   );
+// }
+
+// function sortBySeats(rooms) {
+//   return [...rooms].sort((a, b) => a.seats - b.seats);
+// }
+
+// function sortByName(rooms) {
+//   return [...rooms].sort((a, b) => a.name.localeCompare(b.name));
+// }
